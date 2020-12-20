@@ -78,6 +78,20 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'resources-connection' => [
+            'driver' => 'pgsql',
+            'host' => env('RESOURCES_DB_HOST', '127.0.0.1'),
+            'port' => env('RESOURCES_DB_PORT', '5432'),
+            'database' => env('RESOURCES_DB_DATABASE', 'forge'),
+            'username' => env('RESOURCES_DB_USERNAME', 'forge'),
+            'password' => env('RESOURCES_DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),

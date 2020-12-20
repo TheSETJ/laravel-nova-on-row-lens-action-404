@@ -7,18 +7,50 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/spgwebdev/Laravel-FCM"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/spgwebdev/laravel-fcm-notification-channel"
+        }
+    ],
     "require": {
-        "php": "^7.2.5|^8.0",
-        "fideloper/proxy": "^4.2",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^6.3",
-        "laravel/framework": "^7.29",
-        "laravel/tinker": "^2.0"
+        "php": "^7.3",
+        "brozot/laravel-fcm": "dev-master",
+        "coderello/laravel-nova-lang": "^1.3",
+        "dillingham/nova-attach-many": "^1.0",
+        "enniel/laravel-fcm-notification-channel": "dev-master",
+        "fideloper/proxy": "^4.0",
+        "fourstacks/nova-repeatable-fields": "^1.3",
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "inspheric/nova-url-field": "^1.4",
+        "kavenegar/laravel": "^1.0",
+        "laravel/framework": "^7.0",
+        "laravel/helpers": "^1.3",
+        "laravel/nova": "~3.0",
+        "laravel/tinker": "^2.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "monospice/laravel-redis-sentinel-drivers": "^2.5",
+        "morilog/jalali": "3.*",
+        "mziraki/nova-persian-datepicker": "^0.1.3",
+        "optimistdigital/nova-sortable": "^1.4",
+        "php-junior/nova-logs": "^1.0",
+        "pishran/nova-rtl-theme": "^1.2",
+        "predis/predis": "^1.1",
+        "yassi/nova-nested-form": "^3.0"
     },
     "require-dev": {
-        "facade/ignition": "^2.0",
-        "fakerphp/faker": "^1.9.1",
-        "mockery/mockery": "^1.3.1",
+        "beyondcode/laravel-dump-server": "^1.0",
+        "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^4.1",
         "phpunit/phpunit": "^8.5"
     },
@@ -58,6 +90,12 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "post-update-cmd": [
+            "@php artisan nova:publish"
+        ],
+        "style-check": "php-cs-fixer fix --config=.php_cs.dist --verbose --dry-run --stop-on-violation --show-progress=dots",
+        "style-fix": "php-cs-fixer fix --config=.php_cs.dist --show-progress=dots",
+        "style-diff": "php-cs-fixer fix --config=.php_cs.dist --dry-run --diff --diff-format udiff --ansi"
     }
 }
